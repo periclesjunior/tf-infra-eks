@@ -5,4 +5,7 @@ module "eks" {
   region             = "us-east-1"
   tags               = local.tags
   auto_scale_options = local.auto_scale_options
+  ami_type           = "AL2023_x86_64_STANDARD"
+  instance_types     = ["t3.medium"]
+  capacity_type      = "ON_DEMAND"
 }
