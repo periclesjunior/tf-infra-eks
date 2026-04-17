@@ -8,7 +8,7 @@ locals {
 
   auto_scale_options = {
     min     = 1
-    max     = 1
-    desired = 2
+    max     = 2
+    desired = 1
   }
 }
