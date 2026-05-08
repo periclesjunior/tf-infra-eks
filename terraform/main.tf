@@ -16,4 +16,30 @@ module "eks" {
   cluster_version         = "1.35"
   endpoint_private_access = "true"
   endpoint_public_access  = "true"
+  access_entries = {
+    cluster-admin = {
+      principal_arn = "arn:aws:iam::533267318959:user/devops-nina"
+      policy_associations = {
+        admin = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = {
+            type = "cluster"
+          }
+        }
+      }
+    },
+    namespace-viewer = {
+      principal_arn     = "arn:aws:iam::533267318959:user/devops-yuna"
+      kubernetes_groups = ["viewers"]
+      policy_associations = {
+        viewer = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy"
+          access_scope = {
+            type       = "namespace"
+            namespaces = ["poc", "dev"]
+          }
+        }
+      }
+    }
+  }
 }
