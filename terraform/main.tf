@@ -5,9 +5,9 @@ module "eks" {
   region       = "us-east-1"
   tags         = local.tags
   auto_scale_options = {
-    min     = 1
-    max     = 2
-    desired = 1
+    min     = 2
+    max     = 3
+    desired = 3
   }
   disk_size               = "150"
   ami_type                = "AL2023_x86_64_STANDARD"
@@ -42,4 +42,7 @@ module "eks" {
       }
     }
   }
+  addon_coredns_version   = "v1.14.2-eksbuild.4"
+  addon_kubeproxy_version = "v1.35.3-eksbuild.5"
+  addon_cni_version       = "v1.21.1-eksbuild.8"
 }
