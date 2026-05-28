@@ -1,13 +1,13 @@
 module "eks" {
-  source       = "git@github.com:periclesjunior/tf-infra-eks-modules.git?ref=main"
-  cidr_block   = "10.0.0.0/16"
+  source     = "git@github.com:periclesjunior/tf-infra-eks-modules.git?ref=main"
+  cidr_block = "10.0.0.0/16"
   vpc_additional_cidrs = [
     "100.64.0.0/16"
   ]
-  service_ipv4_cidr = "10.100.0.0/16"  
-  project_name = "nina-eks-001"
-  region       = "us-east-1"
-  tags         = local.tags
+  service_ipv4_cidr = "10.100.0.0/16"
+  project_name      = "nina-eks-001"
+  region            = "us-east-1"
+  tags              = local.tags
   auto_scale_options = {
     min     = 2
     max     = 6
