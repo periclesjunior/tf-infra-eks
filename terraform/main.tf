@@ -49,4 +49,5 @@ module "eks" {
   addon_coredns_version   = "v1.14.2-eksbuild.4"
   addon_kubeproxy_version = "v1.35.3-eksbuild.5"
   addon_cni_version       = "v1.21.1-eksbuild.8"
+  addon_ebs_csi_version   = "v1.60.0-eksbuild.1"
 }
