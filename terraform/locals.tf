@@ -1,8 +1,8 @@
 locals {
   tags = {
-    Departament   = "DevOps"
-    Organizations = "xtpo"
-    Project       = "EKS"
+    Departament   = "DEVOPS"
+    Organizations = "SHIH_TZU"
+    Project       = "YUNINA"
     Environment   = "DEV"
   }
 }

@@ -1,11 +1,42 @@
 module "eks" {
   source     = "git@github.com:periclesjunior/tf-infra-eks-modules.git?ref=main"
   cidr_block = "10.0.0.0/16"
-  vpc_additional_cidrs = [
-    "100.64.0.0/16"
+  public_subnets = [
+    {
+      name              = "dev-yunina-public-1a"
+      cidr              = "10.0.48.0/24"
+      availability_zone = "us-east-1a"
+    },
+    {
+      name              = "dev-yunina-public-1b"
+      cidr              = "10.0.49.0/24"
+      availability_zone = "us-east-1b"
+    },
+    {
+      name              = "dev-yunina-public-1c"
+      cidr              = "10.0.50.0/24"
+      availability_zone = "us-east-1c"
+    }
   ]
+  private_subnets = [
+    {
+      name              = "dev-yunina-private-1a"
+      cidr              = "10.0.0.0/20"
+      availability_zone = "us-east-1a"
+    },
+    {
+      name              = "dev-yunina-private-1b"
+      cidr              = "10.0.16.0/20"
+      availability_zone = "us-east-1b"
+    },
+    {
+      name              = "dev-yunina-private-1c"
+      cidr              = "10.0.32.0/20"
+      availability_zone = "us-east-1c"
+    }
+  ]  
   service_ipv4_cidr = "10.100.0.0/16"
-  project_name      = "nina-eks-001"
+  project_name      = "yunina"
   region            = "us-east-1"
   tags              = local.tags
   auto_scale_options = {
