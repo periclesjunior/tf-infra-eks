@@ -45,6 +45,7 @@ module "eks" {
     desired = 3
   }
   disk_size               = "150"
+  max_pods                = 110
   ami_type                = "AL2023_x86_64_STANDARD"
   instance_types          = ["t3.medium"]
   capacity_type           = "ON_DEMAND"
